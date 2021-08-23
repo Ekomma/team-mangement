@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "ef7df92f-d8a6-453e-920e-7307dce8f0c0",
+		"name": "team-management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "teams requests",
+			"item": [
+				{
+					"name": "GET /api/teams",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Manchester United\",\n    \"alias\": \"Red Devils\",\n    \"managerDetails\": {\n        \"fullname\": \"Ole\",\n        \"age\": 45,\n        \"nationality\": \"Norway\"\n    },\n    \"stadiumDetails\": {\n        \"name\": \"Old Traford\",\n        \"capacity\": 75000,\n        \"address\": \"Manchester, England\"\n    },\n    \"teamDetails\": {\n        \"totalNumberOfPlayers\": 30,\n        \"captainName\": \"Harry Maguire\",\n        \"viceCaptainName\": \"Paul Pogba\"\n    },\n    \"foundedDate\": \"1880-02-02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/teams",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"teams"
+							]
+						},
+						"description": "Get the list of all teams"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/teams",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Manchester United\",\n    \"alias\": \"Red Devils\",\n    \"managerDetails\": {\n        \"fullname\": \"Ole\",\n        \"age\": 45,\n        \"nationality\": \"Norway\"\n    },\n    \"stadiumDetails\": {\n        \"name\": \"Old Traford\",\n        \"capacity\": 75000,\n        \"address\": \"Manchester, England\"\n    },\n    \"teamDetails\": {\n        \"totalNumberOfPlayers\": 30,\n        \"captainName\": \"Harry Maguire\",\n        \"viceCaptainName\": \"Paul Pogba\"\n    },\n    \"foundedDate\": \"1880-02-02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/teams",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"teams"
+							]
+						},
+						"description": "Create a team"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "players request",
+			"item": [
+				{
+					"name": "POST /api/players/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Bruno Fernandes\",\n    \"team\": \"Manchester United\",\n    \"position\": \"midfield\",\n    \"shirt\": 13\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/players/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"players",
+								"register"
+							]
+						},
+						"description": "Register a player\nposition takes any of the following value: [\"defense\", \"midfield\", \"attack\"]"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/players/team/:teamId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/players/team/6123a9bc22124450785508da",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"players",
+								"team",
+								"6123a9bc22124450785508da"
+							]
+						},
+						"description": "Get players of a team by team Id"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /api/players/deregister/6123aa2422124450785508e1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/players/deregister/6123aa2422124450785508e1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"players",
+								"deregister",
+								"6123aa2422124450785508e1"
+							]
+						},
+						"description": "Deregister a player from current team by player Id"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "schedule requests",
+			"item": [
+				{
+					"name": "POST /api/schedules/create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"team\": \"Manchester United\",\n    \"opponent\": \"Manchester City\",\n    \"time\": \"12:00\",\n    \"date\": \"2021-07-08\",\n    \"status\": \"postponed\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/schedules/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"schedules",
+								"create"
+							]
+						},
+						"description": "Create a schedule for a team"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/schedules/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/schedules/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"schedules",
+								""
+							]
+						},
+						"description": "Get all schedules"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /api/schedules/update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"team\": \"Manchester City\",\n    \"opponent\": \"Manchester United\",\n    \"time\": \"23:56\",\n    \"date\": \"2021-08-09\",\n    \"status\": \"finished\",\n    \"result\": \"draw\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/schedules/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"schedules",
+								"update"
+							]
+						},
+						"description": "Update result of a match schedule"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
